@@ -94,3 +94,8 @@ function updateCategory() {
         alert("Không tìm thấy!")
     }
 }
+/* Log out */
+function logOut() {
+    localStorage.removeItem("currentUser");
+    window.location.href = "../index.html"
+}

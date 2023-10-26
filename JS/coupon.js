@@ -1,3 +1,5 @@
+/* Đăng nhập đăng xuất */
+
 let currentUser = JSON.parse(localStorage.getItem("currentUser"))
 console.log(currentUser);
 if (currentUser) {
@@ -10,9 +12,5 @@ if (currentUser) {
 function logOut() {
     localStorage.removeItem("currentUser");
     window.location.href = "../index.html"
-
-
 }
-
-/* ------------------------- */
-
+/* Đăng nhập đăng xuất */
