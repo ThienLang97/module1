@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./CSS/register.css">
+</head>
+
+<body>
+    <div class="reg-container">
+        <p>Đăng kí</p>
+        <form action="" onsubmit="Regis(event)">
+            <input type="text"  placeholder="Tên đăng nhập" style="padding-left: 10px;" class="nameInput">
+            <span id="nameError" class="error-message"></span>
+
+            <input type="email"  placeholder="Nhập email" style="padding-left: 10px;" class="emailInput">
+            <span id="emailError" class="error-message"></span>
+
+            <input type="password"  placeholder="Mật khẩu" style="padding-left: 10px;" class="passInput">
+            <span id="passError" class="error-message"></span>
+
+            <input type="password"  placeholder="Xác nhận lại mật khẩu" style="padding-left: 10px;"
+                class="passConfirm">
+            <span id="passConfirmError" class="error-message"></span>
+            <button type="submit" class="reg-btn">Đăng kí</button>
+        </form>
+
+    </div>
+    <script src="./JS/register.js"></script>
+</body>
+
+</html>

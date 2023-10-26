@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../assets/css/app.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../CSS/qlycategory.css">
+</head>
+
+<body>
+    <header>
+        <!-- Begin page -->
+        <div id="wrapper">
+            <!-- Topbar Start -->
+            <div class="navbar-custom" style="background-color: #128C7E;">
+                <ul class="list-unstyled topnav-menu float-right mb-0">
+                    <li class="">
+                        <a class="nav-link dropdown-toggle  waves-effect waves-light" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="false" aria-expanded="false">
+                            <i class="fas fa-sign-out-alt" style="color: white;" onclick="logOut()"> Log out</i>
+
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-lg">
+                        </div>
+                    </li>
+
+                    <li class="dropdown notification-list">
+                        <div class="dropdown-menu dropdown-menu-right dropdown-lg">
+                            <div class="dropdown-item noti-title">
+                                <h5 class="font-16 text-white m-0">
+
+                                </h5>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="dropdown notification-list">
+                        <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light"
+                            data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                            <img src="../images/búa liềm.jfif" alt="user-image" class="rounded-circle">
+                            <span class="d-none d-sm-inline-block ml-1 font-weight-medium"
+                                style="color: white;">Admin</span>
+
+                        </a>
+                    </li>
+                    <li class="dropdown notification-list">
+                        <a href="javascript:void(0);" class="nav-link right-bar-toggle waves-effect waves-light">
+                            <i class="mdi mdi-settings-outline noti-icon"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- LOGO -->
+                <div class="logo-box">
+                    <a href="../index.html" class="logo text-center logo-dark" target="_blank">
+                        <span class="logo-lg">
+                            <img src="../images/logo.png" alt="" height="70" width="250"
+                                style="background-color:#128C7E ; background-size: cover;">
+                            <!-- <span class="logo-lg-text-dark">Uplon</span> -->
+                        </span>
+
+                    </a>
+
+
+                </div>
+
+                <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
+                    <li>
+                        <button class="button-menu-mobile waves-effect waves-light">
+                            <i class="mdi mdi-menu"></i>
+                        </button>
+                    </li>
+
+                    <li class="d-none d-sm-block">
+                        <form class="app-search">
+                            <div class="app-search-box">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search...">
+                                    <div class="input-group-append">
+                                        <button class="btn" type="submit">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+            <div class="left-side-menu">
+                <div class="slimscroll-menu">
+                    <!--- Sidemenu -->
+                    <div class="left-side-menu" style="background-color: #128C7E;;">
+                        <div class="slimscroll-menu">
+                            <!--- Sidemenu -->
+                            <div id="sidebar-menu">
+                                <ul class="metismenu" id="side-menu">
+                                    <li class="menu-title" style="color: #fff">Navigation</li>
+                                    <li>
+                                        <a href="../admin/QlyProducts.html">
+                                            <i class="mdi mdi-view-dashboard" style="color: #fff"></i>
+                                            <span style="color:#fff; font-weight: 500;"> Quản lí sản phẩm </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../admin/qlyCategory.html">
+                                            <i class="mdi mdi-shape" style="color: #fff"></i>
+                                            <span style="color:#fff; font-weight: 500;"> Quản lí phân loại </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../admin/QlyUser.html">
+                                            <i class="mdi mdi-account-group" style="color: #fff"></i>
+                                            <span style="color:#fff; font-weight: 500;"> Quản lí người dùng </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="Qlydonhang.html">
+                                            <i class="mdi mdi-cart" style="color: #fff"></i>
+                                            <span style="color:#fff; font-weight: 500;"> Quản lí đơn hàng </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- End Sidebar -->
+                        </div>
+                        <!-- Sidebar -left -->
+                    </div>
+                    <!-- End Sidebar -->
+                </div>
+                <!-- Sidebar -left -->
+            </div>
+    </header>
+    <main>
+        <div class="content">
+            <div class="form">
+                <div class="cate">
+                    <h1>Category</h1>
+                    <div>
+                        <input id="input_category" type="text" placeholder=" Category">
+                        <div>
+                            <button type="button" onclick="addCategory()">Thêm</button>
+                            <button type="button" onclick="updateCategory()">Chỉnh sửa</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <table border="1px" cellpadding="10px" cellspacing="10px">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table_body"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="../JS/qlyCategory.js"></script>
+</body>
+
+</html>

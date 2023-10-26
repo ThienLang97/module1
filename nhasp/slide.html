@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+</head>
+<body>
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide"><img src="./images/Banner/Halloween_840x320.jpg" alt="Slide 1"></div>
+            <div class="swiper-slide"><img src="./images/Banner/Manga_mainbanner_T10_Slide_840x320.jpg" alt="Slide 2"></div>
+            <div class="swiper-slide"><img src="./images/Banner/SaiGonbookT1023_Slide_840x320.jpg" alt="Slide 3">
+            </div>
+            <div class="swiper-slide" id="smol"><img src="./images/Banner/NCC1980BooksT1023_Gold_BannerSlide_840x320.jpg"
+                    alt="Slide 4"></div>
+        </div>
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        let swiper = new Swiper('.swiper', {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: true,
+            autoplay: {
+                delay: 3000, // Thời gian trễ giữa các slide (ms)
+            },
+            // If we need pagination
+            pagination: {
+                el: '.swiper-pagination',
+            },
+
+
+        });
+    </script>
+</body>
+</html>
