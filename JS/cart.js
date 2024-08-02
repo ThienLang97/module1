@@ -4,9 +4,9 @@
 let currentUser = JSON.parse(localStorage.getItem("currentUser"))
 let userAcc = JSON.parse(localStorage.getItem("userAcc"))
 console.log(currentUser);
-if (userAcc) {
+if (currentUser) {
     document.getElementById("login-logout").innerHTML = `<a href="index.html" id="logOutButton" style="color:red;" onclick="logOut()">Đăng xuất</a>`;
-    document.getElementById("login-logout2").innerHTML = `<a href="bills.html">Xin chào, ${userAcc.username}</a>`;
+    document.getElementById("login-logout2").innerHTML = `<a href="bills.html">Xin chào, ${currentUser.username}</a>`;
 } else {
     document.getElementById("login-logout").innerHTML = ` <a href="login.html">Đăng nhập</a>`
     document.getElementById("login-logout2").innerHTML = `<a href="register.html">Đăng ký</a>`;
@@ -146,12 +146,17 @@ function minus(index) {
 }
 function deleteButton(index) {
     let productCart = JSON.parse(localStorage.getItem("listProductCart"));
-    productCart.splice(index, 1);
-    localStorage.setItem("listProductCart", JSON.stringify(productCart));
+    let confirm2 = confirm("Bạn có thích xóa khum?");
+    if(confirm2){
+        productCart.splice(index, 1);
+        localStorage.setItem("listProductCart", JSON.stringify(productCart));
 
-    let numberCart = JSON.parse(localStorage.getItem("numberCart"));
-    numberCart--;
-    localStorage.setItem("numberCart", JSON.stringify(numberCart));
+        let numberCart = JSON.parse(localStorage.getItem("numberCart"));
+        numberCart--;
+        localStorage.setItem("numberCart", JSON.stringify(numberCart));
+        window.location.href = "../cart.html"
+    }
+   
     renderCart();
 }
 function pay() {
@@ -166,7 +171,6 @@ function pay() {
         document.getElementById("payInfor").style.display = "none";
     };
 }
-
 
 function userpay() {
     let toUser = document.getElementById("nguoinhan").value;
@@ -188,11 +192,11 @@ function userpay() {
         ID: orderId,
         cart: cartItems,
         username: userAcc.username,
-
         tennguoinhan: toUser,
         diachi: address,
         sdt: phonenumber,
         money: resultMoney,
+        
     };
     let bills = JSON.parse(localStorage.getItem("bills")) || [];
     bills.push(infoReceive)
@@ -200,9 +204,6 @@ function userpay() {
     localStorage.setItem("listProductCart", JSON.stringify([]))
     
     window.location.href = "cart.html"
-
-
-
 
     if (receive == null) {
         receive = [];
@@ -252,29 +253,22 @@ function coupon() {
 }
 coupon();
 
-// console.log(discountRate, "222111"); 
-
-
-
-
-
-// var discountedTotal = 0;
-// if(discountRate === 0){
-//     discountedTotal = subTotal;
-// }else{
-//     discountedTotal = subTotal - (subTotal * discountRate);
-// }
-
-
-// var resultMoney = VND.format(discountedTotal);
-
-
-
-// function coupon() {
-//     const couponCode = document.getElementById("couponCode");
-//     const couponInput = couponCode.value;
-//     if(couponInput==="BETAPCODE"){
-//         console.log("true");
-//     }
-// }
-
+/*  */
+/* Render number cart */
+function renderNumberCart() {
+    
+    let currentUser = localStorage.getItem("currentUser");
+    let listProductCart = JSON.parse(localStorage.getItem("listProductCart"));
+    let numberCart = 0;
+    if (listProductCart) {
+        for (let i = 0; i < listProductCart.length; i++) {
+            if (listProductCart[i].username == currentUser) {
+                numberCart++;
+            }
+        }
+    }
+    localStorage.setItem("numberCart", numberCart);
+    document.getElementById("numberCart").innerHTML = numberCart;
+}
+document.getElementById("numberCart").innerHTML =
+    localStorage.getItem("numberCart");

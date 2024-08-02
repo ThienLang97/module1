@@ -1,0 +1,7 @@
+.q-button {
+    height: 36px;
+    padding: 0 16px;
+    outline: none;
+    border: 1px solid transparent;
+    min-width: 100px;
+}

@@ -33,6 +33,7 @@ p {
     font-size: 16px;
     color: #465b52;
     margin: 15px 0 20px 0;
+    
 }
 
 .section-p1 {
@@ -73,8 +74,8 @@ body {
 .log-container p {
     position: absolute;
     bottom: 85%;
-    right: 80px;
-    width: 200px;
+    right: 0;
+    width: 300px;
     margin: 10px;
     /* background-color: green; */
     font-size: 42px;

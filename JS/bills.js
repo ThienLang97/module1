@@ -30,7 +30,6 @@ let result = `<tr class="tr1">
                         <td class="td1">Người nhận</td>
                         <td class="td1">Address</td>
                         <td class="td1">Phone</td>
-                        <td class="td1">Status</td>
                         
                     </tr>`
 
@@ -85,7 +84,7 @@ if (findReceive) {
                         <td class="td1">${findReceive[i].tennguoinhan}</td>
                         <td class="td1">${findReceive[i].diachi}</td>
                         <td class="td1">${findReceive[i].sdt}</td>
-                        <td class="td1">Status</td>
+                        
                     </tr>`
 
     }
@@ -93,5 +92,23 @@ if (findReceive) {
     bills.innerHTML = result;
 
 }
+/*  */
+/* Render number cart */
+function renderNumberCart() {
+    let currentUser = localStorage.getItem("currentUser");
+    let listProductCart = JSON.parse(localStorage.getItem("listProductCart"));
+    let numberCart = 0;
+    if (listProductCart) {
+        for (let i = 0; i < listProductCart.length; i++) {
+            if (listProductCart[i].username == currentUser) {
+                numberCart++;
+            }
+        }
+    }
+    localStorage.setItem("numberCart", numberCart);
+    document.getElementById("numberCart").innerHTML = numberCart;
+}
+document.getElementById("numberCart").innerHTML =
+    localStorage.getItem("numberCart");
 
 

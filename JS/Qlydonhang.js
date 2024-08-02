@@ -25,30 +25,16 @@ function showOrder() {
     let count = 0;
     for (let i = 0; i < receive.length; i++) {
         const orderId = receive[i].ID;
-
         // Lấy danh sách sản phẩm từ localStorage hoặc đệm nếu đã được lưu trữ trước đó
         let products;
-       
             products = JSON.parse(localStorage.getItem("bills")).filter(
                 (item) => item.ID === orderId
             );
-            // console.log(products,"1122");
-        
-
         localStorage.setItem(`products-${orderId}`, JSON.stringify(products));
-        let cartz = receive[i].cart;
-        console.log(cartz,"112");
-
-        // const productImgs = [];
-        // const productNames = [];
-        // const quantities = [];
-        
+        let cartz = receive[i].cart;      
         const productNames = cartz.map((item) => item.ten);
-        console.log(productNames,"333");
         const productImgs = cartz.map((item) => item.img);
         const productQuans = cartz.map((item)=> item.soluong)
-        // console.log(productNames,"11223");
-
         let stringImg = ""
         for (let i = 0; i < productNames.length; i++) {
             stringImg +=
@@ -84,20 +70,9 @@ function showOrder() {
 
     }
 
-    document.getElementById("tableAdded").innerHTML = result;
-    
+    document.getElementById("tableAdded").innerHTML = result;   
 }
 showOrder();
-
-// function huyDon(orderId) {
-    
-//     let huy = JSON.parse(localStorage.getItem(`products-${orderId}`))
-    
-//     let confirm11 = confirm("Bạn có muốn hủy đơn ?");
-//     if (confirm11) {
-//         localStorage.removeItem(`products-${orderId}`)
-//     }
-// }
 /* Log out */
 function logOut() {
     localStorage.removeItem("currentUser");

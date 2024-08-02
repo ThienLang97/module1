@@ -14,3 +14,26 @@ function logOut() {
     window.location.href = "../index.html"
 }
 /* Đăng nhập đăng xuất */
+if (currentUser.status === "Unavailable"){
+   alert("Tài khoản của bạn đã bị ban");
+    localStorage.removeItem("currentUser");
+    window.location.href = "../login.html"
+}
+/*  */
+/* Render number cart */
+function renderNumberCart() {
+    let currentUser = localStorage.getItem("currentUser");
+    let listProductCart = JSON.parse(localStorage.getItem("listProductCart"));
+    let numberCart = 0;
+    if (listProductCart) {
+        for (let i = 0; i < listProductCart.length; i++) {
+            if (listProductCart[i].username == currentUser) {
+                numberCart++;
+            }
+        }
+    }
+    localStorage.setItem("numberCart", numberCart);
+    document.getElementById("numberCart").innerHTML = numberCart;
+}
+document.getElementById("numberCart").innerHTML =
+    localStorage.getItem("numberCart");
